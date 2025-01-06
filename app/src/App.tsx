@@ -9,44 +9,60 @@ const App: React.FC = () => {
   const data: TaskBoardProps = {
     columns: [
       {
+        id: 'guid1',
         tasks: [{
+          id: 1,
           name: 'Task'
         }, {
+          id: 2,
           name: 'Task 2'
         }, {
+          id: 3,
           name: 'Task 3'
         }],
         title: 'Column 1'
       },
       {
+        id: 'guid2',
         tasks: [{
-          name: 'Task'
+          id: 4,
+          name: 'Task 4'
         }, {
-          name: 'Task 2'
+          id: 5,
+          name: 'Task 5'
         }, {
-          name: 'Task 3'
+          id: 6,
+          name: 'Task 6'
         }],
         title: 'Column 2'
       },
       {
+        id: 'guid3',
         tasks: [{
-          name: 'Task'
+          id: 7,
+          name: 'Task 7'
         }, {
-          name: 'Task 2'
+          id: 8,
+          name: 'Task 8'
         }, {
-          name: 'Task 3'
+          id: 9,
+          name: 'Task 9'
         }],
         title: 'Column 3'
       },
       {
+        id: 'guid4',
         tasks: [{
-          name: 'Task'
+          id: 10,
+          name: 'Task 10'
         }, {
-          name: 'Task 2'
+          id: 11,
+          name: 'Task 11'
         }, {
-          name: 'Task 3'
+          id: 12,
+          name: 'Task 12'
         }],
-        title: 'Column 4'
+        title: 'Column 13'
       }
     ]
   };

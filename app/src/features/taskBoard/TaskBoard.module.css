@@ -12,10 +12,9 @@
   .column {
     flex: 1 0 auto; 
     width: 300px;                /* Ширина колонки */
-    background-color: #f4f6f9;  /* Светлый фон */
+    background-color: #383a3f;  /* Светлый фон */
     padding: 10px;               /* Отступы внутри колонки */
     border-radius: 8px;          /* Закругленные углы */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для колонок */
     display: flex;
     flex-direction: column;      /* Расположение задач внутри колонки */
   }
@@ -24,25 +23,25 @@
   .columnTitle {
     font-size: 20px;
     font-weight: 600;
-    color: #2c3e50;
+    color: white;
     margin-bottom: 15px;          /* Отступ снизу */
   }
   
   /* Стили для задачи */
   .task {
-    background-color: white;     /* Белый фон для задачи */
+    background-color: #60636c;     /* Белый фон для задачи */
     padding: 15px;               /* Отступы внутри задачи */
     margin-bottom: 10px;         /* Отступ между задачами */
     border-radius: 5px;          /* Закругленные углы */
+    color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для задач */
     cursor: pointer;            /* Курсор при наведении */
     transition: background-color 0.3s; /* Плавное изменение фона */
+    min-height: 60px;
+    text-align: left;
+    align-content: center;
   }
   
-  /* При наведении на задачу */
-  .task:hover {
-    background-color: #ecf0f1;  /* Смена фона при наведении */
-  }
   
   /* Стили для контейнера с горизонтальной прокруткой */
   .board::-webkit-scrollbar {

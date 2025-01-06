@@ -7,9 +7,6 @@ const Header: React.FC<HeaderProps> = ({ username }) => {
     <header className={styles.header}>
       <div className={styles.headerContent}>
         <h1 className={styles.headerTitle}>Task Tracker</h1>
-        <div className={styles.userInfo}>
-          <span className={styles.greeting}>Hello, {username}!</span>
-        </div>
       </div>
     </header>
   );

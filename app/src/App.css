@@ -1,6 +1,7 @@
 :root {
   --sidebar-max-width: 200px;
 
+  --global-backgroup-color: #383a3f;
   --header-margin-bottom: 10px;
   --header-padding: 20px;
 }
@@ -26,4 +27,10 @@
   flex: 1;
   width: 100vh;
   height: 100%;
+}
+
+body {
+  background-color: var(--global-backgroup-color); /* Светло-серый цвет */
+  margin: 0; /* Удаляет отступы по умолчанию */
+  color: #333; /* Цвет текста, чтобы он хорошо сочетался с серым фоном */
 }
