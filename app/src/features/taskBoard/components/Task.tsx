@@ -4,22 +4,27 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities'
 
 interface TaskProps {
-  id: number;
-  containerId: string | number;
+  id: string | number;
+  columnId: string | number;
   name: string;
 }
 
-const Task: React.FC<TaskProps> = ({ id, name, containerId }) => {
+const Task: React.FC<TaskProps> = ({ id, name, columnId }) => {
 
   const {
     attributes,
     listeners,
     setNodeRef,
     transform,
-    transition
+    transition,
+    isDragging,
   } = useSortable({id, data: {
     type: 'Task',
-    containerId: containerId
+    task: {
+      id: id,
+      columnId: columnId,
+      name: name
+    }
   }})
 
   const style = {
@@ -27,6 +32,14 @@ const Task: React.FC<TaskProps> = ({ id, name, containerId }) => {
     transition
   }
 
+  if (isDragging) {
+    return <div
+      ref={setNodeRef}
+      style={style}
+      className={styles.dragableTask}
+    >
+    </div>
+  }
   return (
     <div  
       ref={setNodeRef}

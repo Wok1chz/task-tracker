@@ -12,13 +12,16 @@ const App: React.FC = () => {
         id: 'guid1',
         tasks: [{
           id: 1,
-          name: 'Task'
+          name: 'Task',
+          columnId: 'guid1',
         }, {
           id: 2,
-          name: 'Task 2'
+          name: 'Task 2',
+          columnId: 'guid1',
         }, {
           id: 3,
-          name: 'Task 3'
+          name: 'Task 3',
+          columnId: 'guid1',
         }],
         title: 'Column 1'
       },
@@ -26,13 +29,16 @@ const App: React.FC = () => {
         id: 'guid2',
         tasks: [{
           id: 4,
-          name: 'Task 4'
+          name: 'Task 4',
+          columnId: 'guid2',
         }, {
           id: 5,
-          name: 'Task 5'
+          name: 'Task 5',
+          columnId: 'guid2',
         }, {
           id: 6,
-          name: 'Task 6'
+          name: 'Task 6',
+          columnId: 'guid2',
         }],
         title: 'Column 2'
       },
@@ -40,13 +46,16 @@ const App: React.FC = () => {
         id: 'guid3',
         tasks: [{
           id: 7,
-          name: 'Task 7'
+          name: 'Task 7',
+          columnId: 'guid3',
         }, {
           id: 8,
-          name: 'Task 8'
+          name: 'Task 8',
+          columnId: 'guid3',
         }, {
           id: 9,
-          name: 'Task 9'
+          name: 'Task 9',
+          columnId: 'guid3',
         }],
         title: 'Column 3'
       },
@@ -54,13 +63,16 @@ const App: React.FC = () => {
         id: 'guid4',
         tasks: [{
           id: 10,
-          name: 'Task 10'
+          name: 'Task 10',
+          columnId: 'guid4',
         }, {
           id: 11,
-          name: 'Task 11'
+          name: 'Task 11',
+          columnId: 'guid4',
         }, {
           id: 12,
-          name: 'Task 12'
+          name: 'Task 12',
+          columnId: 'guid4',
         }],
         title: 'Column 13'
       }

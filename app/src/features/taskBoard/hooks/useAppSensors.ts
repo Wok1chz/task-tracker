@@ -1,6 +1,7 @@
 import {
     KeyboardSensor,
     MouseSensor,
+    PointerSensor,
     TouchSensor,
     useSensor,
     useSensors
@@ -9,10 +10,10 @@ import {
   
   export const useAppSensors = () => {
     return useSensors(
-      useSensor(MouseSensor, { activationConstraint: { distance: 10 } }),
-      useSensor(TouchSensor),
-      useSensor(KeyboardSensor, {
-        coordinateGetter: sortableKeyboardCoordinates
-      })
+      useSensor(PointerSensor, {
+        activationConstraint: {
+          distance: 50
+        }
+      }),
     );
   };

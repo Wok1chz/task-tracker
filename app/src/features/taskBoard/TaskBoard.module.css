@@ -11,12 +11,23 @@
   /* Стили для каждой колонки */
   .column {
     flex: 1 0 auto; 
-    width: 300px;                /* Ширина колонки */
-    background-color: #383a3f;  /* Светлый фон */
-    padding: 10px;               /* Отступы внутри колонки */
-    border-radius: 8px;          /* Закругленные углы */
+    width: 300px;
+    background-color: #383a3f;
+    padding: 10px;
+    border-radius: 8px;
     display: flex;
-    flex-direction: column;      /* Расположение задач внутри колонки */
+    flex-direction: column;
+  }
+
+  .dragableColumn {
+    flex: 1 0 auto; 
+    width: 300px;
+    background-color: #222427;
+    border: 2px solid red;
+    opacity: 0.3;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
   }
   
   /* Заголовок колонки */
@@ -33,6 +44,22 @@
     padding: 15px;               /* Отступы внутри задачи */
     margin-bottom: 10px;         /* Отступ между задачами */
     border-radius: 5px;          /* Закругленные углы */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для задач */
+    cursor: pointer;            /* Курсор при наведении */
+    transition: background-color 0.3s; /* Плавное изменение фона */
+    min-height: 60px;
+    text-align: left;
+    align-content: center;
+  }
+
+  .dragableTask {
+    background-color: #3b3c41;     /* Белый фон для задачи */
+    padding: 15px;               /* Отступы внутри задачи */
+    margin-bottom: 10px;         /* Отступ между задачами */
+    border-radius: 5px;   
+    opacity: 0.4;
+    border: 1px solid red;       /* Закругленные углы */
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для задач */
     cursor: pointer;            /* Курсор при наведении */
