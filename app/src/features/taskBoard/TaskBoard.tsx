@@ -40,11 +40,11 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ columns, initTasks }) => {
     setColumns(newColumns);
   }
 
-  const createTask = (columnId: Id) => {
+  const createTask = (columnId: Id, name: string) => {
     const newTask: TaskBoardTask = {
       id: uuidv4(),
       columnId: columnId,
-      name: 'Generated Task'
+      name: name
     };
 
     setTasks([...tasks, newTask]);

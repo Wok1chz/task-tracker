@@ -7,12 +7,14 @@
     overflow-x: auto;
     flex-wrap: nowrap;
     margin-bottom: 20px;
+    width: 100%;
   }
 
   .column {
     flex: 1 0 auto; 
     width: 300px;
     background-color: rgba(0, 0, 0, 0);
+    max-width: 300px;
     padding: 10px;
     border-radius: 8px;
     display: flex;
@@ -23,6 +25,7 @@
     flex: 1 0 auto; 
     width: 300px;
     background-color: #222427;
+    max-width: 300px;
     border: 2px solid rgb(197, 186, 156);
     opacity: 0.3;
     padding: 10px;
@@ -32,6 +35,20 @@
   
   .columnTitle {
     background-color: #222427;
+    resize: none;
+    min-height: 50px;
+    padding: 0px 0px 0px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 15px;
+  }
+
+  .textAreaTaskAdd {
+    background-color: #222427;
+    border: none;
+    align-content: center;
+    resize: none;
     min-height: 50px;
     padding: 0px 0px 0px 10px;
     border-radius: 10px;
@@ -93,15 +110,13 @@
   }
 
   .fullWidthInput {
-    width: 98%;
-    border: none;
-    outline: nonec;
-    min-height: 100%;
-    box-sizing: border-box;
-    background-color: transparent;
+    background-color: #222427;
+    min-height: 50px;
+    padding: 0px 0px 0px 10px;
+    border-radius: 10px;
+    font-size: 14px;
     color: white;
-    padding: 0;
-    font-size: 12px;
+    margin-bottom: 15px;
   }
   
   .fullWidthInput::placeholder {

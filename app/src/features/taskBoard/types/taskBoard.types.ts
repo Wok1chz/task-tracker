@@ -11,7 +11,7 @@ export interface TaskBoardColumnProps {
     tasks: Array<TaskBoardTask>;
     title: string;
     updateColumn?: (id: Id, title: string) => void;
-    createTask?: (columnId: Id) => void;
+    createTask?: (columnId: Id, name: string) => void;
 }
 
 export interface TaskBoardTask {

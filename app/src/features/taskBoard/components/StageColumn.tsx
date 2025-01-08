@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import styles from './../TaskBoard.module.css'; // Импортируем стили
 import Task from './Task';
 import { TaskBoardColumnProps, TaskBoardTask } from '../types/taskBoard.types';
@@ -8,9 +8,27 @@ import { CSS } from '@dnd-kit/utilities';
 const StageColumn: React.FC<TaskBoardColumnProps> = ({ id, tasks, title, updateColumn, createTask }) => {
 
   const [editMode, setEditMode] = useState(false);
+  const [newTaskValue, setNewTaskValue] = useState<string>('');
+  const newTaskValueRef = useRef<HTMLTextAreaElement>(null);
+
   const tasksIds = useMemo(() => {
     return tasks.map(tasks => tasks.id);
   }, [tasks]);
+
+  const handleCreateTaskKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const { key } = event;
+    
+    if (key === 'Enter' && newTaskValue.trim()) {
+      event.preventDefault();
+      
+      if (createTask) {
+        createTask(id, newTaskValue.trim());
+      }
+      
+      setNewTaskValue('');
+      newTaskValueRef.current?.blur();
+    }
+  };
 
   const {
       attributes,
@@ -69,12 +87,16 @@ const StageColumn: React.FC<TaskBoardColumnProps> = ({ id, tasks, title, updateC
             onBlur={() => {setEditMode(false)}}
             />}</h2>
         </div>
-        <div className={styles.columnTitle}>
-          <input 
+          <textarea 
+            value={newTaskValue}
+            ref={newTaskValueRef}
             placeholder='Добавить задачу'
-            className={styles.fullWidthInput}
+            className={styles.textAreaTaskAdd}
+            onChange={(event) => {
+              setNewTaskValue(event.target.value)
+            }}
+            onKeyDown={(event: React.KeyboardEvent<HTMLTextAreaElement>) => handleCreateTaskKeyDown(event)}
           />
-        </div>
             <SortableContext items={tasksIds}>
               {tasks.map((task: TaskBoardTask) => (
                 <Task 
@@ -85,13 +107,6 @@ const StageColumn: React.FC<TaskBoardColumnProps> = ({ id, tasks, title, updateC
                 ></Task>
               ))}
             </SortableContext>
-        {/* <div>
-          <button
-            onClick={() => {
-              if(createTask) createTask(id);
-            }}
-          >Добавить задачу</button>
-        </div> */}
       </div>
   );
 };
