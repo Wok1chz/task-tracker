@@ -7,7 +7,7 @@ import { CSS } from '@dnd-kit/utilities';
 
 const StageColumn: React.FC<TaskBoardColumnProps> = ({ id, tasks, title, updateColumn, createTask }) => {
 
-  const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState<boolean>(false);
   const [newTaskValue, setNewTaskValue] = useState<string>('');
   const newTaskValueRef = useRef<HTMLTextAreaElement>(null);
 
@@ -82,7 +82,7 @@ const StageColumn: React.FC<TaskBoardColumnProps> = ({ id, tasks, title, updateC
           {editMode && 
           <input 
             value={title}
-            onChange={(e) => {if (updateColumn) updateColumn(id, e.target.value)}}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {if (updateColumn) updateColumn(id, event.target.value)}}
             autoFocus 
             onBlur={() => {setEditMode(false)}}
             />}</h2>
@@ -92,7 +92,7 @@ const StageColumn: React.FC<TaskBoardColumnProps> = ({ id, tasks, title, updateC
             ref={newTaskValueRef}
             placeholder='Добавить задачу'
             className={styles.textAreaTaskAdd}
-            onChange={(event) => {
+            onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
               setNewTaskValue(event.target.value)
             }}
             onKeyDown={(event: React.KeyboardEvent<HTMLTextAreaElement>) => handleCreateTaskKeyDown(event)}
