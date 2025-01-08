@@ -1,12 +1,11 @@
 import React, { useMemo, useState } from 'react';
 import styles from './../TaskBoard.module.css'; // Импортируем стили
 import Task from './Task';
-import { TaskBoardColumn, TaskBoardTask } from '../types/taskBoard.types';
-import { arrayMove, SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
-import { closestCenter, DndContext, DragEndEvent, DragOverEvent } from '@dnd-kit/core';
+import { TaskBoardColumnProps, TaskBoardTask } from '../types/taskBoard.types';
+import {SortableContext, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-const StageColumn: React.FC<TaskBoardColumn> = ({ id, tasks, title, updateColumn, createTask }) => {
+const StageColumn: React.FC<TaskBoardColumnProps> = ({ id, tasks, title, updateColumn, createTask }) => {
 
   const [editMode, setEditMode] = useState(false);
   const tasksIds = useMemo(() => {
@@ -55,10 +54,13 @@ const StageColumn: React.FC<TaskBoardColumn> = ({ id, tasks, title, updateColumn
         style={style}
         className={styles.column}
       >
-        <div onClick={() => {
-          setEditMode(true);
-        }}>
-          <h2 className={styles.columnTitle}>{!editMode && title}
+        <div 
+        className={styles.columnTitle}
+          onClick={() => {
+            setEditMode(true);
+          }}
+        >
+          <h2>{!editMode && title}
           {editMode && 
           <input 
             value={title}
@@ -67,21 +69,29 @@ const StageColumn: React.FC<TaskBoardColumn> = ({ id, tasks, title, updateColumn
             onBlur={() => {setEditMode(false)}}
             />}</h2>
         </div>
+        <div className={styles.columnTitle}>
+          <input 
+            placeholder='Добавить задачу'
+            className={styles.fullWidthInput}
+          />
+        </div>
             <SortableContext items={tasksIds}>
               {tasks.map((task: TaskBoardTask) => (
-                  <Task key={task?.id} 
+                <Task 
+                  key={task?.id} 
                   name={task?.name} 
                   id={task?.id} 
-                  columnId={task?.columnId}></Task>
+                  columnId={task?.columnId}
+                ></Task>
               ))}
             </SortableContext>
-        <div>
+        {/* <div>
           <button
             onClick={() => {
               if(createTask) createTask(id);
             }}
           >Добавить задачу</button>
-        </div>
+        </div> */}
       </div>
   );
 };

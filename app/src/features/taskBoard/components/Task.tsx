@@ -2,13 +2,9 @@ import React from 'react';
 import styles from './../TaskBoard.module.css'; // Импортируем стили
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities'
+import { TaskBoardTask } from '../types/taskBoard.types';
 
-interface TaskProps {
-  id: string | number;
-  columnId: string | number;
-  name: string;
-}
-
+type TaskProps = TaskBoardTask;
 const Task: React.FC<TaskProps> = ({ id, name, columnId }) => {
 
   const {

@@ -1,17 +1,21 @@
 export interface TaskBoardProps {
-    columns: Array<TaskBoardColumn>;
+    columns: Array<TaskBoardColumnProps>;
+    initTasks?: Array<TaskBoardTask>;
 }
 
-export interface TaskBoardColumn {
-    id: string | number;
+export type Id = string | number;
+
+
+export interface TaskBoardColumnProps {
+    id: Id;
     tasks: Array<TaskBoardTask>;
     title: string;
-    updateColumn?: (id: string | number, title: string) => void;
-    createTask?: (columnId: string | number) => void;
+    updateColumn?: (id: Id, title: string) => void;
+    createTask?: (columnId: Id) => void;
 }
 
 export interface TaskBoardTask {
-    id: string | number;
-    columnId: string | number;
+    id: Id;
+    columnId: Id;
     name: string;
 }

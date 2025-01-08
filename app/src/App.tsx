@@ -10,71 +10,30 @@ const App: React.FC = () => {
     columns: [
       {
         id: 'guid1',
-        tasks: [{
-          id: 1,
-          name: 'Task',
-          columnId: 'guid1',
-        }, {
-          id: 2,
-          name: 'Task 2',
-          columnId: 'guid1',
-        }, {
-          id: 3,
-          name: 'Task 3',
-          columnId: 'guid1',
-        }],
+        tasks: [],
         title: 'Column 1'
       },
       {
         id: 'guid2',
-        tasks: [{
-          id: 4,
-          name: 'Task 4',
-          columnId: 'guid2',
-        }, {
-          id: 5,
-          name: 'Task 5',
-          columnId: 'guid2',
-        }, {
-          id: 6,
-          name: 'Task 6',
-          columnId: 'guid2',
-        }],
+        tasks: [],
         title: 'Column 2'
       },
       {
         id: 'guid3',
-        tasks: [{
-          id: 7,
-          name: 'Task 7',
-          columnId: 'guid3',
-        }, {
-          id: 8,
-          name: 'Task 8',
-          columnId: 'guid3',
-        }, {
-          id: 9,
-          name: 'Task 9',
-          columnId: 'guid3',
-        }],
+        tasks: [],
         title: 'Column 3'
       },
       {
         id: 'guid4',
-        tasks: [{
-          id: 10,
-          name: 'Task 10',
-          columnId: 'guid4',
-        }, {
-          id: 11,
-          name: 'Task 11',
-          columnId: 'guid4',
-        }, {
-          id: 12,
-          name: 'Task 12',
-          columnId: 'guid4',
-        }],
+        tasks: [],
         title: 'Column 13'
+      }
+    ],
+    initTasks: [
+      {
+        id: 'test1',
+        name: "Поставить чайник",
+        columnId: 'guid1'
       }
     ]
   };
@@ -85,7 +44,7 @@ const App: React.FC = () => {
       <div className="main-container">
         <Sidebar username={username} />
         <main className="main-content">
-          <TaskBoard columns={data.columns}></TaskBoard>
+          <TaskBoard columns={data.columns} initTasks={data.initTasks}></TaskBoard>
         </main>
       </div>
     </div>

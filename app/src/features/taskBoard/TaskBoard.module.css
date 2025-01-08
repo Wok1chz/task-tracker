@@ -1,18 +1,18 @@
 .board {
     display: flex;
     justify-content: flex-start;
+    background-color: #383a3f;
     padding: 20px;
     gap: 20px;
     overflow-x: auto;
     flex-wrap: nowrap;
     margin-bottom: 20px;
   }
-  
-  /* Стили для каждой колонки */
+
   .column {
     flex: 1 0 auto; 
     width: 300px;
-    background-color: #383a3f;
+    background-color: rgba(0, 0, 0, 0);
     padding: 10px;
     border-radius: 8px;
     display: flex;
@@ -23,67 +23,89 @@
     flex: 1 0 auto; 
     width: 300px;
     background-color: #222427;
-    border: 2px solid red;
+    border: 2px solid rgb(197, 186, 156);
     opacity: 0.3;
     padding: 10px;
     display: flex;
     flex-direction: column;
   }
   
-  /* Заголовок колонки */
   .columnTitle {
-    font-size: 20px;
-    font-weight: 600;
+    background-color: #222427;
+    min-height: 50px;
+    padding: 0px 0px 0px 10px;
+    border-radius: 10px;
+    font-size: 14px;
     color: white;
-    margin-bottom: 15px;          /* Отступ снизу */
+    margin-bottom: 15px;
+  }
+
+  .columnTitle h2 {
+    font-weight: normal;
+    font-size: 18px;
   }
   
-  /* Стили для задачи */
   .task {
-    background-color: #60636c;     /* Белый фон для задачи */
-    padding: 15px;               /* Отступы внутри задачи */
-    margin-bottom: 10px;         /* Отступ между задачами */
-    border-radius: 5px;          /* Закругленные углы */
+    background-color: #404247;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
     color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для задач */
-    cursor: pointer;            /* Курсор при наведении */
-    transition: background-color 0.3s; /* Плавное изменение фона */
-    min-height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-height: 70px;
     text-align: left;
     align-content: center;
   }
 
   .dragableTask {
-    background-color: #3b3c41;     /* Белый фон для задачи */
-    padding: 15px;               /* Отступы внутри задачи */
-    margin-bottom: 10px;         /* Отступ между задачами */
+    background-color: #383a3f;
+    padding: 15px;
+    margin-bottom: 10px;
     border-radius: 5px;   
     opacity: 0.4;
-    border: 1px solid red;       /* Закругленные углы */
+    border: 1px solid rgb(197, 186, 156);
     color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для задач */
-    cursor: pointer;            /* Курсор при наведении */
-    transition: background-color 0.3s; /* Плавное изменение фона */
-    min-height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-height: 70px;
     text-align: left;
     align-content: center;
   }
   
-  
-  /* Стили для контейнера с горизонтальной прокруткой */
   .board::-webkit-scrollbar {
-    height: 8px;                /* Высота ползунка */
+    height: 8px;
   }
   
   .board::-webkit-scrollbar-track {
-    background: #f1f1f1;        /* Цвет фона полосы прокрутки */
+    background: #f1f1f1;
   }
   
   .board::-webkit-scrollbar-thumb {
-    background: #888;           /* Цвет ползунка */
-    border-radius: 10px;         /* Закругленные углы ползунка */
+    background: #888;
+    border-radius: 10px;
   }
   
   .board::-webkit-scrollbar-thumb:hover {
-    background: #555;           /* Цвет ползунка при наведении */
+    background: #555;
+  }
+
+  .fullWidthInput {
+    width: 98%;
+    border: none;
+    outline: nonec;
+    min-height: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+    padding: 0;
+    font-size: 12px;
+  }
+  
+  .fullWidthInput::placeholder {
+    border: none;
+    color: white;
+    opacity: 1;
   }

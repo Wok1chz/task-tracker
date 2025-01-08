@@ -1,18 +1,18 @@
 import React, { useMemo, useState } from 'react';
 import styles from './TaskBoard.module.css'; // Импортируем стили
 import StageColumn from './components/StageColumn';
-import { TaskBoardColumn, TaskBoardProps, TaskBoardTask } from './types/taskBoard.types';
+import { Id, TaskBoardColumnProps, TaskBoardProps, TaskBoardTask } from './types/taskBoard.types';
 import { DndContext, DragEndEvent, DragOverEvent, DragOverlay, DragStartEvent } from '@dnd-kit/core';
-import { arrayMove, horizontalListSortingStrategy, SortableContext } from '@dnd-kit/sortable';
+import { arrayMove, SortableContext } from '@dnd-kit/sortable';
 import { v4 as uuidv4 } from 'uuid';
 import { useAppSensors } from './hooks/useAppSensors';
 import { createPortal } from 'react-dom';
 import Task from './components/Task';
 
-const TaskBoard: React.FC<TaskBoardProps> = ({ columns }) => {
-  const [taskColumns, setColumns] = useState<TaskBoardColumn[]>(columns);
-  const [activeColumn, setActiveColumn] = useState<TaskBoardColumn | null>(null);
-  const [tasks, setTasks] = useState<TaskBoardTask[]>([]);
+const TaskBoard: React.FC<TaskBoardProps> = ({ columns, initTasks }) => {
+  const [taskColumns, setColumns] = useState<TaskBoardColumnProps[]>(columns);
+  const [activeColumn, setActiveColumn] = useState<TaskBoardColumnProps | null>(null);
+  const [tasks, setTasks] = useState<TaskBoardTask[]>(initTasks ? initTasks : []);
   const [activeTask, setActiveTask] = useState<TaskBoardTask | null>(null);
 
   const columnsId = useMemo(() => taskColumns.map((col) => col.id), [taskColumns]);
@@ -30,16 +30,17 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ columns }) => {
     }
   }
 
-  const updateColumn = (id: string | number, title: string) => {
+  const updateColumn = (id: Id, title: string) => {
     const newColumns = columns.map(col => {
       if (col.id !== id) return col;
-      return {...col, title};
+
+      return {...col,title};
     });
 
     setColumns(newColumns);
   }
 
-  const createTask = (columnId: string | number) => {
+  const createTask = (columnId: Id) => {
     const newTask: TaskBoardTask = {
       id: uuidv4(),
       columnId: columnId,
@@ -69,7 +70,7 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ columns }) => {
     })
   }
 
-  const handleDragOver = (event: DragOverEvent) => {
+  const handleDragOver = (event: DragOverEvent) => { // TODO 
     const { active, over } = event;
 
     if (!over) return;
@@ -119,7 +120,7 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ columns }) => {
       <SortableContext 
         items={columnsId}
       >
-          {taskColumns.map((column: TaskBoardColumn) => (
+          {taskColumns.map((column: TaskBoardColumnProps) => (
             <StageColumn 
               key={column.id} 
               tasks={tasks.filter(task => task.columnId === column.id)} 
